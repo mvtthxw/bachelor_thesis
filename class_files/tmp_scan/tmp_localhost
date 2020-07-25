@@ -1,0 +1,72 @@
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-07-25 06:55 CEST
+NSE: Loaded 146 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 06:55
+Completed NSE at 06:55, 0.00s elapsed
+Initiating NSE at 06:55
+Completed NSE at 06:55, 0.00s elapsed
+Initiating SYN Stealth Scan at 06:55
+Scanning localhost (127.0.0.1) [1000 ports]
+Discovered open port 21/tcp on 127.0.0.1
+Discovered open port 80/tcp on 127.0.0.1
+Discovered open port 53/tcp on 127.0.0.1
+Discovered open port 631/tcp on 127.0.0.1
+Completed SYN Stealth Scan at 06:55, 1.60s elapsed (1000 total ports)
+Initiating UDP Scan at 06:55
+Scanning localhost (127.0.0.1) [1000 ports]
+Discovered open port 53/udp on 127.0.0.1
+Completed UDP Scan at 06:55, 2.51s elapsed (1000 total ports)
+Initiating Service scan at 06:55
+Scanning 7 services on localhost (127.0.0.1)
+Completed Service scan at 06:56, 97.58s elapsed (7 services on 1 host)
+Initiating OS detection (try #1) against localhost (127.0.0.1)
+NSE: Script scanning 127.0.0.1.
+Initiating NSE at 06:56
+Completed NSE at 06:57, 4.28s elapsed
+Initiating NSE at 06:57
+Completed NSE at 06:57, 1.01s elapsed
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000023s latency).
+Not shown: 1993 closed ports
+PORT     STATE         SERVICE  VERSION
+21/tcp   open          ftp      vsftpd 3.0.3
+53/tcp   open          domain
+80/tcp   open          http     Apache httpd 2.4.29 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: OPTIONS HEAD GET POST
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+631/tcp  open          ipp      CUPS 2.2
+| http-methods: 
+|   Supported Methods: GET HEAD OPTIONS POST PUT
+|_  Potentially risky methods: PUT
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: CUPS/2.2 IPP/2.1
+|_http-title: Home - CUPS 2.2.7
+53/udp   open          domain   ISC BIND (Fake version: 9.11.3-1ubuntu1.12-Ubuntu)
+| dns-nsid: 
+|_  bind.version: 9.11.3-1ubuntu1.12-Ubuntu
+|_dns-recursion: Recursion appears to be enabled
+631/udp  open|filtered ipp
+5353/udp open|filtered zeroconf
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32
+OS details: Linux 2.6.32
+Uptime guess: 8.497 days (since Thu Jul 16 19:01:51 2020)
+Network Distance: 0 hops
+TCP Sequence Prediction: Difficulty=256 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Unix
+
+NSE: Script Post-scanning.
+Initiating NSE at 06:57
+Completed NSE at 06:57, 0.00s elapsed
+Initiating NSE at 06:57
+Completed NSE at 06:57, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 109.85 seconds
+           Raw packets sent: 2204 (83.308KB) | Rcvd: 4410 (191.200KB)
