@@ -1,27 +1,26 @@
-import os
+import nmap
 
 class cScan:
-    def __init__(self, address, hostname, path):
+    def __init__(self, address, scan, range, path):
         self.address=address        #adres celu
-        self.hostname=hostname      #hostname
-        self.save_path=path         #sciezka do zapisu wyniku
-        self.tmp_file=os.path.join('class_files/tmp_scan', "tmp_" + self.hostname)   #sciezka do pliku z surowym wynikiem skanu
-        self.save_file = os.path.join(self.save_path, self.hostname)    #sciezka do pliku z przetworzonym wynikiem
+        self.scan_type=scan
+        self.port_range=range
+        self.save_path= path         #sciezka do zapisu wyniku
         self.scan_result = ''       #zmienna zawierajaca wynik skanu
-        self.Scan()                 #proces skanowania
-        self.Save(self.tmp_file, "w")    #zapisanie surowego wyniku z nmap do pliku
+        self.nm = nmap.PortScanner()
+        self.nm.scan(self.address, self.port_range, self.scan_type)
         self.Clear()                #proces oczyszczania wyniku
-        self.Save(self.save_file, "w") #zapisanie przetworzonego wyniku
-
-    def Scan(self):
-        command="sudo nmap -sS -sU -T4 -A -v " + self.address #komenda uruchamiajaca nmap
-        self.scan_result=os.popen(command).read()   #zapisanie wyniku do zmiennej
+        self.Save()#zapisanie przetworzonego wyniku
 
     def Clear(self):
-        command = 'grep -oE "^[0-9]{1,5}/[a-z]+" ' + self.tmp_file  #komenda wyszukujaca w pliku otwarte porty
-        self.scan_result = self.address + "\n" + os.popen(command).read()     #zapisanie wyniku do zmiennej
+        for host in self.nm.all_hosts():    #lista przeskanowanych hostów
+            for protocol in self.nm[host].all_protocols():     #lista protokołów wykrytych podczas skanowania
+                port_list=self.nm[host][protocol].keys()       #lista portów w danym protokole
+                for port in port_list:
+                    self.scan_result +=  str(port) + "/" + protocol + "\n"
 
-    def Save(self, file_name, type):
-        with open(file_name, type) as file:
+    def Save(self):
+        with open(self.save_path, "w+") as file:
             file.write(str(self.scan_result))
 
+#cScan("127.0.0.1", "elo", "-sS -sU -T4 -A -v", "21-443", "hello")
