@@ -10,6 +10,7 @@ class cScan:
         self.nm = nmap.PortScanner()
         self.nm.scan(self.address, self.port_range, self.scan_type)
         self.Clear()                #proces oczyszczania wyniku
+        print(self.scan_result)
         self.Save()#zapisanie przetworzonego wyniku
 
     def Clear(self):
