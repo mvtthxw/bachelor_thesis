@@ -2,9 +2,9 @@ import nmap
 import sys
 nm=nmap.PortScanner()
 #print(sys.argv[1])
-address='127.0.0.1'
+address=sys.argv[1]
 range='1-443'
-type=sys.argv[1]
+type=sys.argv[2]
 print(type)
 nm.scan(address, range, type)
 
