@@ -39,4 +39,5 @@ class cCompare:
     def Save(self):
         with open(self.report_path, 'a') as file:
             file.write(str(self.report))
+            print(self.report)
 

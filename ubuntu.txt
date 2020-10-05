@@ -1,0 +1,96 @@
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-10-01 00:17 CEST
+NSE: Loaded 146 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 00:17
+Completed NSE at 00:17, 0.00s elapsed
+Initiating NSE at 00:17
+Completed NSE at 00:17, 0.00s elapsed
+Initiating ARP Ping Scan at 00:17
+Scanning 192.168.1.13 [1 port]
+Completed ARP Ping Scan at 00:17, 0.43s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 00:17
+Completed Parallel DNS resolution of 1 host. at 00:17, 0.01s elapsed
+Initiating SYN Stealth Scan at 00:17
+Scanning 192.168.1.13 [1000 ports]
+Completed SYN Stealth Scan at 00:22, 290.86s elapsed (1000 total ports)
+Initiating UDP Scan at 00:22
+Scanning 192.168.1.13 [1000 ports]
+UDP Scan Timing: About 2.55% done; ETC: 00:43 (0:20:23 remaining)
+UDP Scan Timing: About 3.75% done; ETC: 00:50 (0:26:31 remaining)
+UDP Scan Timing: About 5.00% done; ETC: 00:53 (0:29:08 remaining)
+Increasing send delay for 192.168.1.13 from 0 to 50 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 6.50% done; ETC: 00:55 (0:30:41 remaining)
+UDP Scan Timing: About 10.60% done; ETC: 00:58 (0:32:20 remaining)
+Increasing send delay for 192.168.1.13 from 50 to 100 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 192.168.1.13 from 100 to 200 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 21.25% done; ETC: 01:01 (0:30:27 remaining)
+Increasing send delay for 192.168.1.13 from 200 to 400 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 27.65% done; ETC: 01:01 (0:28:26 remaining)
+Increasing send delay for 192.168.1.13 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 33.25% done; ETC: 01:02 (0:26:26 remaining)
+Increasing send delay for 192.168.1.13 from 800 to 1000 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 38.60% done; ETC: 01:02 (0:24:27 remaining)
+UDP Scan Timing: About 43.75% done; ETC: 01:02 (0:22:27 remaining)
+UDP Scan Timing: About 49.00% done; ETC: 01:02 (0:20:25 remaining)
+UDP Scan Timing: About 54.20% done; ETC: 01:02 (0:18:24 remaining)
+UDP Scan Timing: About 59.35% done; ETC: 01:02 (0:16:21 remaining)
+UDP Scan Timing: About 64.45% done; ETC: 01:02 (0:14:19 remaining)
+UDP Scan Timing: About 69.55% done; ETC: 01:02 (0:12:17 remaining)
+UDP Scan Timing: About 74.65% done; ETC: 01:03 (0:10:15 remaining)
+UDP Scan Timing: About 79.80% done; ETC: 01:03 (0:08:10 remaining)
+UDP Scan Timing: About 84.90% done; ETC: 01:03 (0:06:07 remaining)
+UDP Scan Timing: About 89.90% done; ETC: 01:03 (0:04:05 remaining)
+UDP Scan Timing: About 95.00% done; ETC: 01:03 (0:02:02 remaining)
+Completed UDP Scan at 01:03, 2434.03s elapsed (1000 total ports)
+Initiating Service scan at 01:03
+Scanning 1000 services on 192.168.1.13
+Service scan Timing: About 0.40% done
+Service scan Timing: About 3.10% done; ETC: 02:48 (1:42:07 remaining)
+Service scan Timing: About 6.10% done; ETC: 02:23 (1:15:10 remaining)
+Service scan Timing: About 9.10% done; ETC: 02:14 (1:05:06 remaining)
+Service scan Timing: About 12.10% done; ETC: 02:10 (0:59:05 remaining)
+Service scan Timing: About 15.10% done; ETC: 02:07 (0:54:55 remaining)
+Service scan Timing: About 18.10% done; ETC: 02:06 (0:51:35 remaining)
+Service scan Timing: About 23.50% done; ETC: 01:58 (0:42:39 remaining)
+Service scan Timing: About 24.10% done; ETC: 02:03 (0:46:08 remaining)
+Service scan Timing: About 29.40% done; ETC: 01:58 (0:39:16 remaining)
+Service scan Timing: About 35.40% done; ETC: 01:58 (0:35:48 remaining)
+Service scan Timing: About 41.40% done; ETC: 01:58 (0:32:22 remaining)
+Service scan Timing: About 47.40% done; ETC: 01:58 (0:28:59 remaining)
+Service scan Timing: About 53.40% done; ETC: 01:58 (0:25:38 remaining)
+Service scan Timing: About 59.40% done; ETC: 01:58 (0:22:18 remaining)
+Service scan Timing: About 65.40% done; ETC: 01:58 (0:18:59 remaining)
+Service scan Timing: About 71.40% done; ETC: 01:57 (0:15:41 remaining)
+Service scan Timing: About 77.40% done; ETC: 01:57 (0:12:23 remaining)
+Service scan Timing: About 83.40% done; ETC: 01:57 (0:09:05 remaining)
+Service scan Timing: About 88.90% done; ETC: 01:58 (0:06:06 remaining)
+Service scan Timing: About 94.90% done; ETC: 01:58 (0:02:48 remaining)
+Service scan Timing: About 99.10% done; ETC: 01:58 (0:00:30 remaining)
+Completed Service scan at 01:58, 3318.62s elapsed (1000 services on 1 host)
+Initiating OS detection (try #1) against 192.168.1.13
+NSE: Script scanning 192.168.1.13.
+Initiating NSE at 01:58
+Completed NSE at 01:59, 41.09s elapsed
+Initiating NSE at 01:59
+Completed NSE at 02:01, 123.55s elapsed
+Nmap scan report for 192.168.1.13
+Host is up (0.17s latency).
+All 2000 scanned ports on 192.168.1.13 are open|filtered (1000) or closed (870) or filtered (130)
+MAC Address: 18:D6:C7:10:DD:D7 (Tp-link Technologies)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT       ADDRESS
+1   165.10 ms 192.168.1.13
+
+NSE: Script Post-scanning.
+Initiating NSE at 02:01
+Completed NSE at 02:01, 0.00s elapsed
+Initiating NSE at 02:01
+Completed NSE at 02:01, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6214.11 seconds
+           Raw packets sent: 3569 (130.370KB) | Rcvd: 1010 (40.388KB)
