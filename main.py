@@ -29,7 +29,7 @@ class cInit:
 
     def CheckConfig(self):
         self.CheckIP()
-        self.CheckScanType()
+        #self.CheckScanType()
 
     def CheckIP(self):
         try:
