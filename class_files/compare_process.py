@@ -1,5 +1,6 @@
 import os
 import datetime
+from difflib import SequenceMatcher
 
 class cCompare:
     def __init__(self, hostname):
@@ -40,4 +41,3 @@ class cCompare:
         with open(self.report_path, 'a') as file:
             file.write(str(self.report))
             print(self.report)
-

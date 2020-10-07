@@ -12,7 +12,6 @@ class cScan:
         self.Clear()                #proces oczyszczania wyniku
         self.Save()#zapisanie przetworzonego wyniku
 
-
     def Clear(self):
         for host in self.nm.all_hosts():    #lista przeskanowanych hostów
             for protocol in self.nm[host].all_protocols():     #lista protokołów wykrytych podczas skanowania

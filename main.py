@@ -29,11 +29,11 @@ class cInit:
 
     def CheckConfig(self):
         self.CheckIP()
-        #self.CheckScanType()
+        self.CheckScanType()
 
     def CheckIP(self):
         try:
-            socket.inet_aton(self.IPaddress)  # sprawdza poprawnosc adresu ip
+            socket.inet_aton(self.IPaddress)
         except socket.error:
             print("Invalid IP address!")
 
