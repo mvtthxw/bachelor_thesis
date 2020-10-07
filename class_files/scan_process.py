@@ -10,7 +10,6 @@ class cScan:
         self.nm = nmap.PortScanner()
         self.nm.scan(self.address, self.port_range, self.scan_type)
         self.Clear()                #proces oczyszczania wyniku
-        print(self.scan_result)
         self.Save()#zapisanie przetworzonego wyniku
 
     def Clear(self):
@@ -23,5 +22,6 @@ class cScan:
     def Save(self):
         with open(self.save_path, "w+") as file:
             file.write(str(self.scan_result))
+            print(self.scan_result)
 
-#cScan("127.0.0.1", "elo", "-sS -sU -T4 -A -v", "21-443", "hello")
+#cScan("172.20.10.11", "-sS -sU -T4 -A -v", "21-443", "hello")
