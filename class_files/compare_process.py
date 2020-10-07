@@ -1,6 +1,5 @@
 import os
 import datetime
-from difflib import SequenceMatcher
 
 class cCompare:
     def __init__(self, hostname):
