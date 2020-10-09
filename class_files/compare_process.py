@@ -1,42 +1,26 @@
-import os
-import datetime
+from difflib import Differ
 
 class cCompare:
-    def __init__(self, hostname):
+    def __init__(self, hostname, scan_result):
         self.hostname=hostname
-        self.time_now=""
-        self.comapre_result=""
-        self.report_path = 'files/report/'+ self.hostname
-        self.Time()
-        self.report = "Day: " + self.time_now + "\n"
+        self.scan_result=scan_result.splitlines()
+        self.template_scan=''
+        self.compare_result=''
+        self.template_path = 'files/default_ports/'+ self.hostname
+        self.ReadTemplate()
         self.Compare()
-        self.Save()
 
-    def Time(self):
-        now = datetime.datetime.now()
-        year = now.strftime("%Y")
-        month = now.strftime("%m")
-        day = now.strftime("%d")
-        time = now.strftime("%H:%M:%S")
-        self.time_now = ('{}-{}-{} {}').format(day, month, year, time)
+    def ReadTemplate(self):
+        with open(self.template_path, 'r') as file:
+            self.template_scan=file.read().splitlines()
 
     def Compare(self):
-        command="diff files/default_ports/" + self.hostname + " files/tmp_result/" + self.hostname
-        self.comapre_result=os.popen(command).read()
-        if len(self.comapre_result)==0:
-            self.report += "No changes have been detected \n\n"
-        else:
-            self.Clear()
-            self.report += "\n\n"
-
-    def Clear(self):
-        for line in self.comapre_result.splitlines():
-            if "<" in line:
-                self.report += "Port " + line[2:] + " has been closed\n"
-            elif ">" in line:
-                self.report += "New port " + line[2:] + " has been opened\n"
-
-    def Save(self):
-        with open(self.report_path, 'a') as file:
-            file.write(str(self.report))
-            print(self.report)
+        dif = Differ()
+        compare = list(dif.compare(self.template_scan, self.scan_result))
+        for line in compare:
+            if line[0] == '+':
+                self.compare_result += "New port " + line[2:] + " has been opened\n"
+            elif line[0] == '-':
+                self.compare_result += "Port " + line[2:] + " has been closed\n"
+        if len(self.compare_result)==0:
+            self.compare_result="No changes have been detected"
