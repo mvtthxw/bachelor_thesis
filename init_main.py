@@ -1,18 +1,15 @@
-#wykonanie pierwszego skanu z ktorego powstanie wzorzec
 from class_files import scan_process
 
 import socket
 import os
 
-class cInit: #tworzenie klasy
+class cInit:
     def __init__(self):
         self.IPaddress=""   #adres ip celu
         self.hostname=""    #hostname celu
-        self.scan_type=""
         self.port_range="1-65535"
         self.IP()           #metoda pobierajaca adres ip
         self.Hostname()     #metoda pobierajaca hostname
-        self.ScanType()
         self.PortRange()
         self.save_path = "files/default_ports/" + self.hostname # sciezka do zapisania wzorca
         self.save_config_path = "files/config/" + self.hostname
