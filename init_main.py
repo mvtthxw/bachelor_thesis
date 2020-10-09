@@ -98,7 +98,7 @@ class cInit: #tworzenie klasy
 
     def Scan(self):
         print("Scanning process. Please wait!")
-        scan_process.cScan(self.IPaddress, self.scan_type, self.port_range, self.save_path)  #proces skanowania wykonany kodem z pliku scan_process.py
+        scan_process.cScan(self.IPaddress, self.scan_type, self.port_range)  #proces skanowania wykonany kodem z pliku scan_process.py
 
     def SaveConfig(self):
         config=self.IPaddress + "\n" + self.scan_type + "\n" + self.port_range
