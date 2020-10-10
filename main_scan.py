@@ -24,7 +24,7 @@ class cMain:
             thread.join()
 
     def Daemon(self, host):
-        scanner.cInit(host)
+        scanner.cScanner(host)
 
 def main():
     cMain()

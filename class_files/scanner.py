@@ -5,7 +5,7 @@ from class_files import save_process
 
 import nmap
 
-class cInit:
+class cScanner:
     def __init__(self, hostname):
         self.hostname = hostname
         self.IPaddress=""
