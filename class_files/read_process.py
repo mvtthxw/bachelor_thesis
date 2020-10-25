@@ -28,7 +28,7 @@ class cRead:
             print("Invalid IP address!")
 
     def CheckScanType(self):
-        scan_types = ["-sS -sU -T4", "-T4 -A -v", "-sV -T4 -O -F"]
+        scan_types = ["-sS -sU -T4", "sS -T4", "-sV -T4 -O -F"]
         if (self.scan_type in scan_types)==False:
             print("Wrong scan type!")
             exit(1)
