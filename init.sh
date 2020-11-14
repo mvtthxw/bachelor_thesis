@@ -12,7 +12,5 @@ sudo python3 -m pip install python-nmap
 
 
 
-#sudo bash -c 'cat << EOF > /etc/cron.daily/scanner
-##!/bin/bash
-#docker run -it --rm  --name scanner -v $PWD/files:/home/port_scanner/files scanner:1
-#EOF'
+#* * * * * root /home/mati/git/bachelor_thesis/test.sh - every minute
+#0 10 * * * - daily at 10am

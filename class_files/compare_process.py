@@ -7,6 +7,7 @@ class cCompare:
         self.template_scan=''
         self.compare_result=''
         self.template_path = 'files/default_ports/'+ self.hostname
+        self.monitoring_path = "files/monitoring/" + self.hostname
         self.ReadTemplate()
         self.Compare()
 
@@ -24,3 +25,9 @@ class cCompare:
                 self.compare_result += "Port " + line[2:] + " has been closed\n"
         if len(self.compare_result)==0:
             self.compare_result="No changes have been detected"
+            with open(self.monitoring_path, "w+") as file:
+                file.write(str(1))
+        else:
+            with open(self.monitoring_path, "w+") as file:
+                file.write(str(0))
+

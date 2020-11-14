@@ -15,6 +15,8 @@ class cFirstScanner:
         self.Input()
         self.config_path = "files/config/" + self.hostname
         self.def_ports_path = "files/default_ports/" + self.hostname
+        self.monitoring_path = "files/monitoring/" + self.hostname
+        self.report_path = "files/report/" + self.hostname
 
     def Input(self):
         host = input_data_process.cInput()
@@ -32,7 +34,9 @@ class cFirstScanner:
             self.Scan()
             self.SavePorts()
             self.SaveConfig()
-            os.system("touch files/report/" + self.hostname)
+            self.MonitoringFile()
+            self.ReportFile()
+            #os.system("touch files/report/" + self.hostname)
 
     def Scan(self):
         oScan = scan_process.cScan(self.IPaddress, self.scan_type, self.port_range)
@@ -46,3 +50,12 @@ class cFirstScanner:
         config = self.IPaddress + "\n" + self.scan_type + "\n" + self.port_range
         with open(self.config_path, "w+") as file:
             file.write(str(config))
+
+    def MonitoringFile(self):
+        with open(self.monitoring_path, "w+") as file:
+            file.write(str(1))
+
+    def ReportFile(self):
+        with open(self.report_path, "w+") as file:
+            file.write("")
+

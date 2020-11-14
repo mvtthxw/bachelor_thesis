@@ -30,7 +30,6 @@ class cInput: #tworzenie klasy
                 print("Hostname cannot be empty")
                 continue
             command='find ./files/config -name "'+hostname+'" | wc -l '  #sprawdzenie czy hostname sie nie powiela
-            print(command)
             count=os.popen(command).read()  #wykonanie komendy w konsoli
             if int(count) !=0:
                 anwser=input("This hostname already exist! Would You like to overwrite it? N/y: ")
@@ -45,7 +44,7 @@ class cInput: #tworzenie klasy
     def ScanType(self):
         while(True):
             scan_type_disp = {1: "Intense scan plus UDP (Recommended)", 2: "Intense scan only TCP", 3: "Quick scan plus"}
-            scan_type = {1: "-sS -sU -T4", 2: "-sS -T4", 3: "-sV -T4 -O -F"}
+            scan_type = {1: "-sS -sU -T4", 2: "-sS -T4", 3: "-oX"}
             for i, j in scan_type_disp.items():
                 print(i, j)
             option=input("Scan option: ")
