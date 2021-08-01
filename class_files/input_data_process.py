@@ -1,10 +1,7 @@
-#wykonanie pierwszego skanu z ktorego powstanie wzorzec
-from class_files import scan_process
-
-import socket
+import ipaddress
 import os
 
-class cInit: #tworzenie klasy
+class cInput: #tworzenie klasy
     def __init__(self):
         self.IPaddress=""   #adres ip celu
         self.hostname=""    #hostname celu
@@ -14,18 +11,13 @@ class cInit: #tworzenie klasy
         self.Hostname()     #metoda pobierajaca hostname
         self.ScanType()
         self.PortRange()
-        self.save_path = "files/default_ports/" + self.hostname # sciezka do zapisania wzorca
-        self.save_config_path = "files/config/" + self.hostname
-        self.Scan()         #metoda zapisujaca wyniki do pliku
-        self.SaveConfig()
-        os.system("touch files/report/" + self.hostname)  # stworzenie pliku w ktorym bedzie zapisany raport
 
     def IP(self):
         while (True):
             address = input("Enter target's IP address: ")
             try:
-                socket.inet_aton(address)       #sprawdza poprawnosc adresu ip
-            except socket.error:
+                ipaddress.ip_address(address)      #sprawdza poprawnosc adresu ip
+            except:
                 print("Invalid input address!")
                 continue
             self.IPaddress=address      #zapisanie do zmiennej
@@ -51,8 +43,8 @@ class cInit: #tworzenie klasy
 
     def ScanType(self):
         while(True):
-            scan_type_disp = {1: "Intense scan plus UDP (Recommended)", 2: "Intense scan", 3: "Quick scan plus"}
-            scan_type = {1: "-sS -sU -T4 -A -v", 2: "-T4 -A -v", 3: "-sV -T4 -O -F"}
+            scan_type_disp = {1: "Intense scan plus UDP (Recommended)", 2: "Intense scan only TCP", 3: "Quick scan plus"}
+            scan_type = {1: "-sS -sU -T4", 2: "-sS -T4", 3: "-oX"}
             for i, j in scan_type_disp.items():
                 print(i, j)
             option=input("Scan option: ")
@@ -66,8 +58,6 @@ class cInit: #tworzenie klasy
     def PortRange(self):
         decision=input("Default port range 1-65535. Would You like change it? N/y: ")
         if decision=="y":
-            first=1
-            last=65535
             while (True):
                 first = input("Enter first port: ")
                 try:
@@ -96,16 +86,3 @@ class cInit: #tworzenie klasy
                     self.port_range= first + "-" + last
                     break
 
-    def Scan(self):
-        print("Scanning process. Please wait!")
-        scan_process.cScan(self.IPaddress, self.scan_type, self.port_range, self.save_path)  #proces skanowania wykonany kodem z pliku scan_process.py
-
-    def SaveConfig(self):
-        config=self.IPaddress + "\n" + self.scan_type + "\n" + self.port_range
-        with open(self.save_config_path, "w+") as file:
-            file.write(str(config))
-
-def main():
-    cInit()
-if __name__ == "__main__":
-    main()
